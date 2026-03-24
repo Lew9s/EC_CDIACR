@@ -115,8 +115,3 @@ This project is developed based on the following outstanding open-source project
 
 We fully comply with their respective open-source licenses and retain all original copyright statements.
 
-## License Compliance
-This project is licensed under the GPL-3.0 license.
-The use of third-party libraries is subject to their own licenses:
-LlamaIndex: MIT License
-Dify: Apache License 2.0
