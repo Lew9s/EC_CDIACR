@@ -3,7 +3,10 @@
 This repository implements a knowledge-enhanced framework for generating engineering change proposals. Centered on multi-agent cross-departmental information aggregation and consensus reaching, the framework integrates interactive expert-in-the-loop mechanisms to enhance interpretability and practicality.
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79c081a942a169553db5c8d2cde9817b8769132b
 ## System Architecture
 The framework consists of two tightly integrated core modules:
 
@@ -15,7 +18,10 @@ The framework consists of two tightly integrated core modules:
 - **Intelligent Search & Reasoning**: Support natural language-based graph queries, knowledge reasoning, and semantic retrieval.
 - **Automated Cross-Departmental Evaluation Workflow**: A consensus-oriented multi-agent architecture designed to simulate the full lifecycle of cross-departmental evaluation. Domain-specific agents decompose complex decision-making processes into interpretable, role-based reasoning steps.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79c081a942a169553db5c8d2cde9817b8769132b
 ## Environmental Preparation
 
 ### 1. System Requirements
@@ -62,7 +68,10 @@ VALIDATION_SCHEMA="{\"CHANGE_ORDER\": [\"MODIFIES\", \"SIGNED_BY\", \"HAS_REASON
 EXTRACTION_PROMPT="You are a professional knowledge graph information extraction assistant..."
 ```
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79c081a942a169553db5c8d2cde9817b8769132b
 ## Execution Steps
 
 ### Step 1: Build the Knowledge Graph
@@ -104,6 +113,7 @@ Available API endpoints:
 
 ## Acknowledgments
 This project is developed based on the following outstanding open-source projects. We sincerely thank the developers and communities for their contributions:
+<<<<<<< HEAD
 
 **LlamaIndex**: Provides core knowledge graph indexing, retrieval, and LLM orchestration functionalities.
 - Repository: https://github.com/run-llama/llama_index
@@ -112,6 +122,13 @@ This project is developed based on the following outstanding open-source project
 - Official Website: https://dify.ai
 - Repository: https://github.com/langgenius/dify
 
+=======
+**LlamaIndex**: Provides core knowledge graph indexing, retrieval, and LLM orchestration functionalities.
+- Repository: https://github.com/run-llama/llama_index
+**Dify**: Supports the multi-agent workflow, consensus mechanism, and visual orchestration system.
+- Official Website: https://dify.ai
+- Repository: https://github.com/langgenius/dify
+>>>>>>> 79c081a942a169553db5c8d2cde9817b8769132b
 We fully comply with their respective open-source licenses and retain all original copyright statements.
 
 ## License Compliance
