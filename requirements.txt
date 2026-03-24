@@ -1,0 +1,10 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+llama-index-core==0.10.0
+llama-index-llms-ollama==0.1.2
+llama-index-embeddings-ollama==0.1.2
+llama-index-graph-stores-neo4j==0.1.2
+pydantic==1.10.13
+python-dotenv==1.0.0
+neo4j==5.15.0
+nest-asyncio==1.5.8

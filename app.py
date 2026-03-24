@@ -13,6 +13,8 @@ from llama_index.core.indices.property_graph import (
 from pydantic import BaseModel as PydanticBaseModel, Field
 import uvicorn
 import logging
+import os
+from config import settings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -21,13 +23,13 @@ app = FastAPI(title="GraphRAG", version="1.0")
 
 # 初始化
 graph_store = Neo4jPGStore(
-    username="neo4j",
-    password="12345678",
-    url="bolt://localhost:8687",
+    username=settings.neo4j_username,
+    password=settings.neo4j_password,
+    url=settings.neo4j_url,
 )
 
-llm = Ollama(model="qwen3:30b-a3b-Instruct", request_timeout=3600)
-embed_model = OllamaEmbedding(model_name="bge-m3:latest")
+llm = Ollama(model=settings.ollama_model, request_timeout=settings.ollama_request_timeout)
+embed_model = OllamaEmbedding(model_name=settings.ollama_embedding_model)
 
 # 加载图谱
 index = PropertyGraphIndex.from_existing(

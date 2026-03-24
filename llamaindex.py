@@ -8,8 +8,9 @@ from llama_index.embeddings.ollama import OllamaEmbedding
 from typing import List
 import re
 import nest_asyncio
+from config import settings
 
-documents = SimpleDirectoryReader("/home/justjg/code/data").load_data()
+documents = SimpleDirectoryReader(settings.data_path).load_data()
 
 def split_change_orders(documents: List[Document]) -> List[Document]:
     split_docs = []
@@ -95,7 +96,7 @@ prompt=(
 )
 
 kg_extractor = SchemaLLMPathExtractor(
-    llm=Ollama(model="qwen3:30b-a3b-Instruct", json_mode=True, request_timeout=3600),
+    llm=Ollama(model=settings.ollama_model, json_mode=True, request_timeout=settings.ollama_request_timeout),
     possible_entities=entities,
     possible_relations=relations,
     kg_validation_schema=validation_schema,

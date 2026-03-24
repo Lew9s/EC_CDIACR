@@ -1,8 +1,10 @@
 from llama_index.graph_stores.neo4j import Neo4jPGStore
+from config import settings
+
 graph_store = Neo4jPGStore(
-    username="neo4j",
-    password="12345678",
-    url="bolt://localhost:8687",
+    username=settings.neo4j_username,
+    password=settings.neo4j_password,
+    url=settings.neo4j_url,
 )
 driver = graph_store.client
 with driver.session() as session:
