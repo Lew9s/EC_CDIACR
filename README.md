@@ -3,7 +3,6 @@
 This repository implements a knowledge-enhanced framework for generating engineering change proposals. Centered on multi-agent cross-departmental information aggregation and consensus reaching, the framework integrates interactive expert-in-the-loop mechanisms to enhance interpretability and practicality.
 
 
----
 
 ## System Architecture
 The framework consists of two tightly integrated core modules:
@@ -16,7 +15,6 @@ The framework consists of two tightly integrated core modules:
 - **Intelligent Search & Reasoning**: Support natural language-based graph queries, knowledge reasoning, and semantic retrieval.
 - **Automated Cross-Departmental Evaluation Workflow**: A consensus-oriented multi-agent architecture designed to simulate the full lifecycle of cross-departmental evaluation. Domain-specific agents decompose complex decision-making processes into interpretable, role-based reasoning steps.
 
----
 
 ## Environmental Preparation
 
@@ -64,7 +62,6 @@ VALIDATION_SCHEMA="{\"CHANGE_ORDER\": [\"MODIFIES\", \"SIGNED_BY\", \"HAS_REASON
 EXTRACTION_PROMPT="You are a professional knowledge graph information extraction assistant..."
 ```
 
----
 
 ## Execution Steps
 
@@ -98,16 +95,14 @@ Available API endpoints:
    - Configure HTTP request nodes to interact with the knowledge graph API
    - Verify loop logic and conditional judgment rules
 
----
 
 ## Customization
 - **Custom Cypher Query**: Modify the `CYPHER_QUERY` environment variable to define custom graph database query logic for specific business scenarios.
 - **Custom Knowledge Schema**: Adjust `ENTITIES_LIST` and `RELATIONS_LIST` to define domain-specific entity and relationship types.
 - **Custom Prompt**: Update `EXTRACTION_PROMPT` to optimize information extraction for specialized domains.
 
----
 
-## Acknowledgments & Third-Party Libraries
+## Acknowledgments
 This project is developed based on the following outstanding open-source projects. We sincerely thank the developers and communities for their contributions:
 
 **LlamaIndex**: Provides core knowledge graph indexing, retrieval, and LLM orchestration functionalities.
