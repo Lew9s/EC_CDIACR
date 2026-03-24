@@ -3,8 +3,6 @@
 This repository implements a knowledge-enhanced framework for generating engineering change proposals. Centered on multi-agent cross-departmental information aggregation and consensus reaching, the framework integrates interactive expert-in-the-loop mechanisms to enhance interpretability and practicality.
 
 
----
-
 ## System Architecture
 The framework consists of two tightly integrated core modules:
 
@@ -15,8 +13,6 @@ The framework consists of two tightly integrated core modules:
 - **Knowledge Graph Construction**: Automatically extract entities and semantic relationships from engineering change order data to construct a structured knowledge graph.
 - **Intelligent Search & Reasoning**: Support natural language-based graph queries, knowledge reasoning, and semantic retrieval.
 - **Automated Cross-Departmental Evaluation Workflow**: A consensus-oriented multi-agent architecture designed to simulate the full lifecycle of cross-departmental evaluation. Domain-specific agents decompose complex decision-making processes into interpretable, role-based reasoning steps.
-
----
 
 ## Environmental Preparation
 
@@ -64,8 +60,6 @@ VALIDATION_SCHEMA="{\"CHANGE_ORDER\": [\"MODIFIES\", \"SIGNED_BY\", \"HAS_REASON
 EXTRACTION_PROMPT="You are a professional knowledge graph information extraction assistant..."
 ```
 
----
-
 ## Execution Steps
 
 ### Step 1: Build the Knowledge Graph
@@ -98,22 +92,20 @@ Available API endpoints:
    - Configure HTTP request nodes to interact with the knowledge graph API
    - Verify loop logic and conditional judgment rules
 
----
 
 ## Customization
 - **Custom Cypher Query**: Modify the `CYPHER_QUERY` environment variable to define custom graph database query logic for specific business scenarios.
 - **Custom Knowledge Schema**: Adjust `ENTITIES_LIST` and `RELATIONS_LIST` to define domain-specific entity and relationship types.
 - **Custom Prompt**: Update `EXTRACTION_PROMPT` to optimize information extraction for specialized domains.
 
----
 
-## Acknowledgments & Third-Party Libraries
+## Acknowledgments
 This project is developed based on the following outstanding open-source projects. We sincerely thank the developers and communities for their contributions:
-LlamaIndex: Provides core knowledge graph indexing, retrieval, and LLM orchestration functionalities.
-Repository: https://github.com/run-llama/llama_index
-Dify: Supports the multi-agent workflow, consensus mechanism, and visual orchestration system.
-Official Website: https://dify.ai
-Repository: https://github.com/langgenius/dify
+**LlamaIndex**: Provides core knowledge graph indexing, retrieval, and LLM orchestration functionalities.
+- Repository: https://github.com/run-llama/llama_index
+**Dify**: Supports the multi-agent workflow, consensus mechanism, and visual orchestration system.
+- Official Website: https://dify.ai
+- Repository: https://github.com/langgenius/dify
 We fully comply with their respective open-source licenses and retain all original copyright statements.
 
 ## License Compliance
