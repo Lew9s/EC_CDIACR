@@ -53,31 +53,9 @@ vector_context = VectorContextRetriever(
     include_text=True,
 )
 
-cypher = """
-MATCH (comp:COMPONENT {name: $component_name})
-
-MATCH (co:CHANGE_ORDER)-[:MODIFIES]->(comp)
-
-WITH DISTINCT co.group_key AS target_group
-
-MATCH (related_co:CHANGE_ORDER)
-WHERE related_co.group_key = target_group
-
-MATCH (related_co)-[:HAS_REASON]->(reason:REASON)
-MATCH (related_co)-[:OCCURS_AT]->(time:TIME_POINT)
-MATCH (related_co)-[:SIGNED_BY]->(dept:DEPARTMENT)
-
-ORDER BY related_co.name
-RETURN
-  related_co.name AS change_order,
-  related_co.group_key AS change_group,
-  reason.name AS reason,
-  time.name AS time_point,
-  COLLECT(DISTINCT dept.name) AS departments,
-  [(related_co)-[:MODIFIES]->(c:COMPONENT) | c.name] AS modified_components
-"""
+cypher = settings.cypher_query
 class ComponentChangeQuery(PydanticBaseModel):
-    component_name: str = Field(description="要查询变更历史的组件名称")
+    component_name: str = Field(description="Component name for querying change history")
 
 Cypher_retriever = CypherTemplateRetriever(
     index.property_graph_store,
@@ -103,14 +81,14 @@ class QueryRequest(BaseModel):
 @app.post("/query",response_model=List[str])
 async def query(request:QueryRequest):
     if not request.question.strip():
-        raise HTTPException(status_code=400, detail="问题不能为空")
+        raise HTTPException(status_code=400, detail="The question cannot be left blank.")
 
     try:
         nodes = await retriever.aretrieve(request.question.strip())
         return [node.text.strip() for node in nodes if node.text.strip()]
     except Exception as e:
-        logger.error(f"检索失败: {e}")
-        raise HTTPException(status_code=500, detail="知识图谱检索失败")
+        logger.error(f"Search failed: {e}")
+        raise HTTPException(status_code=500, detail="Knowledge graph retrieval failed")
 
 @app.get("/")
 def health():

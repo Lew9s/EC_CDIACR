@@ -14,6 +14,13 @@ class Settings(BaseSettings):
     
     data_path: str = os.getenv("DATA_PATH")
     
+    cypher_query: str = os.getenv("CYPHER_QUERY")
+
+    entity_list: str = os.getenv("ENTITY_LIST")
+    relation_list: str = os.getenv("RELATION_LIST")
+    validation_schema: str = os.getenv("VALIDATION_SCHEMA")
+    extraction_prompt: str = os.getenv("EXTRACTION_PROMPT")
+    
     class Config:
         env_file = ".env"
 
