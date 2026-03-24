@@ -1,0 +1,3394 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: advanced-chat
+  name: 变更方案生成
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/ollama:0.1.2@fcf107badccaf57948634ad2c557d393c3894138d83f4eb3f959e9a1d3a86512
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1745722477227-source-1748057051509-target
+      selected: false
+      source: '1745722477227'
+      sourceHandle: source
+      target: '1748057051509'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: http-request
+      id: 1756296171307-source-1757832169524-target
+      selected: false
+      source: '1756296171307'
+      sourceHandle: source
+      target: '1757832169524'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1756295646537-source-1764342600158-target
+      selected: false
+      source: '1756295646537'
+      sourceHandle: source
+      target: '1764342600158'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: llm
+      id: 1757832169524-source-1764439534679-target
+      selected: false
+      source: '1757832169524'
+      sourceHandle: source
+      target: '1764439534679'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: loop-start
+        targetType: if-else
+      id: 1764440599562start-source-1764441946690-target
+      selected: false
+      source: 1764440599562start
+      sourceHandle: source
+      target: '1764441946690'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764441946690-true-1764440608466-target
+      selected: false
+      source: '1764441946690'
+      sourceHandle: 'true'
+      target: '1764440608466'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: loop-start
+        targetType: if-else
+      id: 1764440599562start-source-1764441976290-target
+      selected: false
+      source: 1764440599562start
+      sourceHandle: source
+      target: '1764441976290'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764441976290-true-1764440656084-target
+      selected: false
+      source: '1764441976290'
+      sourceHandle: 'true'
+      target: '1764440656084'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: loop-start
+        targetType: if-else
+      id: 1764440599562start-source-1764442000874-target
+      selected: false
+      source: 1764440599562start
+      sourceHandle: source
+      target: '1764442000874'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764442000874-true-1764440684060-target
+      selected: false
+      source: '1764442000874'
+      sourceHandle: 'true'
+      target: '1764440684060'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: loop-start
+        targetType: if-else
+      id: 1764440599562start-source-1764442023300-target
+      selected: false
+      source: 1764440599562start
+      sourceHandle: source
+      target: '1764442023300'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764442023300-true-1764440696054-target
+      selected: false
+      source: '1764442023300'
+      sourceHandle: 'true'
+      target: '1764440696054'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: loop-start
+        targetType: if-else
+      id: 1764440599562start-source-1764442044379-target
+      selected: false
+      source: 1764440599562start
+      sourceHandle: source
+      target: '1764442044379'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764442044379-true-1764440713191-target
+      selected: false
+      source: '1764442044379'
+      sourceHandle: 'true'
+      target: '1764440713191'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: loop-start
+        targetType: if-else
+      id: 1764440599562start-source-1764442059789-target
+      selected: false
+      source: 1764440599562start
+      sourceHandle: source
+      target: '1764442059789'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764442059789-true-1764442076133-target
+      selected: false
+      source: '1764442059789'
+      sourceHandle: 'true'
+      target: '1764442076133'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764448006903-true-1764448503960-target
+      selected: false
+      source: '1764448006903'
+      sourceHandle: 'true'
+      target: '1764448503960'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764448312679-true-1764448661424-target
+      selected: false
+      source: '1764448312679'
+      sourceHandle: 'true'
+      target: '1764448661424'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764448326843-true-1764448723362-target
+      selected: false
+      source: '1764448326843'
+      sourceHandle: 'true'
+      target: '1764448723362'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764448340381-true-1764448735475-target
+      selected: false
+      source: '1764448340381'
+      sourceHandle: 'true'
+      target: '1764448735475'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764448352380-true-1764448757108-target
+      selected: false
+      source: '1764448352380'
+      sourceHandle: 'true'
+      target: '1764448757108'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: llm
+      id: 1764448362991-true-1764448763935-target
+      selected: false
+      source: '1764448362991'
+      sourceHandle: 'true'
+      target: '1764448763935'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: loop
+        targetType: llm
+      id: 1764440599562-source-1756295646537-target
+      selected: false
+      source: '1764440599562'
+      sourceHandle: source
+      target: '1756295646537'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1764442507095-source-1764452615230-target
+      selected: false
+      source: '1764442507095'
+      sourceHandle: source
+      target: '1764452615230'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: loop
+      id: 1764452615230-source-1764440599562-target
+      selected: false
+      source: '1764452615230'
+      sourceHandle: source
+      target: '1764440599562'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1764439534679-source-1764442507095-target
+      selected: false
+      source: '1764439534679'
+      sourceHandle: source
+      target: '1764442507095'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: parameter-extractor
+      id: 1748057051509-source-1756296171307-target
+      selected: false
+      source: '1748057051509'
+      sourceHandle: source
+      target: '1756296171307'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: code
+        targetType: assigner
+      id: 1764449508377-source-1764453585959-target
+      source: '1764449508377'
+      sourceHandle: source
+      target: '1764453585959'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: if-else
+      id: 1764446429011-source-1764448362991-target
+      source: '1764446429011'
+      sourceHandle: source
+      target: '1764448362991'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: if-else
+      id: 1764446429011-source-1764448006903-target
+      source: '1764446429011'
+      sourceHandle: source
+      target: '1764448006903'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: if-else
+      id: 1764446429011-source-1764448312679-target
+      source: '1764446429011'
+      sourceHandle: source
+      target: '1764448312679'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: if-else
+      id: 1764446429011-source-1764448326843-target
+      source: '1764446429011'
+      sourceHandle: source
+      target: '1764448326843'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: if-else
+      id: 1764446429011-source-1764448340381-target
+      source: '1764446429011'
+      sourceHandle: source
+      target: '1764448340381'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: if-else
+      id: 1764446429011-source-1764448352380-target
+      source: '1764446429011'
+      sourceHandle: source
+      target: '1764448352380'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764442076133-source-1768373403266-target
+      source: '1764442076133'
+      sourceHandle: source
+      target: '1768373403266'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1768373403266-source-1764446429011-target
+      source: '1768373403266'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764440608466-source-1768373598412-target
+      source: '1764440608466'
+      sourceHandle: source
+      target: '1768373598412'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1768373598412-source-1764446429011-target
+      source: '1768373598412'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764440656084-source-1768373690396-target
+      source: '1764440656084'
+      sourceHandle: source
+      target: '1768373690396'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1768373690396-source-1764446429011-target
+      source: '1768373690396'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764440684060-source-1768373727987-target
+      source: '1764440684060'
+      sourceHandle: source
+      target: '1768373727987'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1768373727987-source-1764446429011-target
+      source: '1768373727987'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764440696054-source-1768373782164-target
+      source: '1764440696054'
+      sourceHandle: source
+      target: '1768373782164'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1768373782164-source-1764446429011-target
+      source: '1768373782164'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764440713191-source-1768373801032-target
+      source: '1764440713191'
+      sourceHandle: source
+      target: '1768373801032'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1768373801032-source-1764446429011-target
+      source: '1768373801032'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: code
+      id: 1764448362991-false-1764449508377-target
+      source: '1764448362991'
+      sourceHandle: 'false'
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: code
+      id: 1764448006903-false-1764449508377-target
+      source: '1764448006903'
+      sourceHandle: 'false'
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: code
+      id: 1764448312679-false-1764449508377-target
+      source: '1764448312679'
+      sourceHandle: 'false'
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: code
+      id: 1764448326843-false-1764449508377-target
+      source: '1764448326843'
+      sourceHandle: 'false'
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: code
+      id: 1764448340381-false-1764449508377-target
+      source: '1764448340381'
+      sourceHandle: 'false'
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: code
+      id: 1764448352380-false-1764449508377-target
+      source: '1764448352380'
+      sourceHandle: 'false'
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: assigner
+      id: 1764442044379-false-1769397971801-target
+      source: '1764442044379'
+      sourceHandle: 'false'
+      target: '1769397971801'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1769397971801-source-1764446429011-target
+      source: '1769397971801'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: assigner
+      id: 1764441946690-false-1769398030815-target
+      source: '1764441946690'
+      sourceHandle: 'false'
+      target: '1769398030815'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1769398030815-source-1764446429011-target
+      source: '1769398030815'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: assigner
+      id: 1764441976290-false-1769398063296-target
+      source: '1764441976290'
+      sourceHandle: 'false'
+      target: '1769398063296'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1769398063296-source-1764446429011-target
+      source: '1769398063296'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: assigner
+      id: 1764442000874-false-1769398097032-target
+      source: '1764442000874'
+      sourceHandle: 'false'
+      target: '1769398097032'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1769398097032-source-1764446429011-target
+      source: '1769398097032'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: assigner
+      id: 1764442059789-false-1769398130018-target
+      source: '1764442059789'
+      sourceHandle: 'false'
+      target: '1769398130018'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1769398130018-source-1764446429011-target
+      source: '1769398130018'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: if-else
+        targetType: assigner
+      id: 1764442023300-false-1769398165538-target
+      source: '1764442023300'
+      sourceHandle: 'false'
+      target: '1769398165538'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: llm
+      id: 1769398165538-source-1764446429011-target
+      source: '1769398165538'
+      sourceHandle: source
+      target: '1764446429011'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764448763935-source-1769408600395-target
+      source: '1764448763935'
+      sourceHandle: source
+      target: '1769408600395'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: code
+      id: 1769408600395-source-1764449508377-target
+      source: '1769408600395'
+      sourceHandle: source
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764448503960-source-1769408660008-target
+      source: '1764448503960'
+      sourceHandle: source
+      target: '1769408660008'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: code
+      id: 1769408660008-source-1764449508377-target
+      source: '1769408660008'
+      sourceHandle: source
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764448661424-source-1769408813980-target
+      source: '1764448661424'
+      sourceHandle: source
+      target: '1769408813980'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: code
+      id: 1769408813980-source-1764449508377-target
+      source: '1769408813980'
+      sourceHandle: source
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764448723362-source-1769408846869-target
+      source: '1764448723362'
+      sourceHandle: source
+      target: '1769408846869'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: code
+      id: 1769408846869-source-1764449508377-target
+      source: '1769408846869'
+      sourceHandle: source
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764448735475-source-1769408866515-target
+      source: '1764448735475'
+      sourceHandle: source
+      target: '1769408866515'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: code
+      id: 1769408866515-source-1764449508377-target
+      source: '1769408866515'
+      sourceHandle: source
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: llm
+        targetType: assigner
+      id: 1764448757108-source-1769408886690-target
+      source: '1764448757108'
+      sourceHandle: source
+      target: '1769408886690'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        sourceType: assigner
+        targetType: code
+      id: 1769408886690-source-1764449508377-target
+      source: '1769408886690'
+      sourceHandle: source
+      target: '1764449508377'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 72
+      id: '1745722477227'
+      position:
+        x: 140
+        y: 205
+      positionAbsolute:
+        x: 140
+        y: 205
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            think: false
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - edition_type: basic
+          id: 7cd0a4c1-607c-4901-9808-a15c6556b400
+          role: system
+          text: "【角色】\n你是一名专业的工程变更需求解析专家。\n【任务】\n你的任务是从用户自然语言输入中提取结构化的变更意图\n【指令】\n\
+            请按以下步骤处理：\n1. 识别变更主体（如“501P分段”、“主甲板人孔”等组件）；\n2. 识别约束条件（标准号如DIN 83402、船东要求、焊接形式等）；\n\
+            3. 补全模糊表述，但不得臆测未提及内容。\n\n输出格式（严格使用JSON）：\n{\n  \"component\": \"变更主体\"\
+            ,\n  \"constraints\": [\"约束1\", \"约束2\", ...],\n  \"context\": \"补全后的完整意图描述（自然语言）\"\
+            \n}\n\n用户输入：{{#sys.query#}}"
+        reasoning_format: separated
+        selected: true
+        title: 需求关键词提取
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 87
+      id: '1748057051509'
+      position:
+        x: 450.3098748190213
+        y: 220.27112829066976
+      positionAbsolute:
+        x: 450.3098748190213
+        y: 220.27112829066976
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.5
+            think: false
+          mode: chat
+          name: qwen3:30b-a3b-Instruct
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: d35f1565-96fb-4ea0-b5c1-8bca753eb3d4
+          role: system
+          text: '【Role】
+
+            你是在船舶制造工程变更作为变更方案的最终整合者与起草人
+
+            【Task】
+
+            你的任务是基于以下四类输入内容：
+
+            - 用户提出的工程变更需求；
+
+            - 检索获得的历史案例及组件依赖路径；
+
+            - 多专家达成的评估共识
+
+            生成一份工程变更提案
+
+            【Instruction】
+
+            1.提案必须包含变更背景，历史案例，具体措施，注意事项四章内容
+
+            2.所有建议必须有检索上下文或专家共识支撑，不得自行编造未提及的组件或标准。
+
+            3.不得虚构部门名、时间、人名等信息
+
+            4.仅输出提案本身，不要包含其他信息
+
+            【Input】
+
+            - 用户需求：{{#sys.query#}}
+
+            - 检索上下文：{{#1757832169524.body#}}
+
+            - 专家共识：{{#1764440599562.consensus#}}
+
+            【Output】
+
+            以Markdown格式，用英文回答，输出提案
+
+
+            /no_think'
+        reasoning_format: separated
+        selected: false
+        title: decision-making
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 87
+      id: '1756295646537'
+      position:
+        x: 565.717842500605
+        y: 2350.72603855579
+      positionAbsolute:
+        x: 565.717842500605
+        y: 2350.72603855579
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        parameters:
+        - description: component
+          name: component
+          required: true
+          type: string
+        - description: context
+          name: context
+          required: true
+          type: string
+        query:
+        - '1748057051509'
+        - text
+        reasoning_mode: prompt
+        selected: false
+        title: 参数提取器
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 87
+      id: '1756296171307'
+      position:
+        x: 835.2186660219123
+        y: 208.19854963156843
+      positionAbsolute:
+        x: 835.2186660219123
+        y: 208.19854963156843
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-210
+            key: ''
+            type: text
+            value: '{ "question": "{{#1756296171307.component#}}" }'
+          type: json
+        default_value:
+        - key: body
+          type: string
+          value: none
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        desc: ''
+        error_strategy: default-value
+        headers: Content-Type:application/json
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 混合检索
+        type: http-request
+        url: http://192.168.249.213:8000/query
+        variables: []
+      height: 173
+      id: '1757832169524'
+      position:
+        x: 70.38456671514393
+        y: 384.24736225518683
+      positionAbsolute:
+        x: 70.38456671514393
+        y: 384.24736225518683
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1756295646537.text#}}'
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 102
+      id: '1764342600158'
+      position:
+        x: 565.717842500605
+        y: 2496.435032857983
+      positionAbsolute:
+        x: 565.717842500605
+        y: 2496.435032857983
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1757832169524'
+          - body
+        model:
+          completion_params:
+            json_schema: '{"routing_table": [{"expert_role": "...", "weight": "...",
+              "retrieved_context": "..."}, ...]}'
+            seed: 1
+            temperature: 0.4
+            think: false
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 9300a9d3-91d0-4fe6-80b9-b3bcc92c51dd
+          role: system
+          text: '【角色】
+
+            你是一个智能路线规划员
+
+            【任务】
+
+            你的任务是分析变更意图，结合历史案例，确定变更决策需要哪些专家参与，并为其分配权重（0~1，总和为1，反映其观点对本次决策的重要性）
+
+            【指令】
+
+            1.识别与此变更有关的所有工程领域
+
+            2.专家仅限于**可选专家池**中的专家
+
+            3.若该专业与本次变更无关则权重为0
+
+            【输入】
+
+            - 变更意图：{{#1756296171307.context#}}
+
+            - 历史案例：{{#context#}}
+
+            - 可选专家池：["结构设计", "舾装工艺", "质量规范", "电气系统", "轮机系统", "材料与焊接"]
+
+            【输出】
+
+            输出一个符合以下结构字符串：
+
+            {"routing_table": [{"expert_role": "...", "weight": "...", "retrieved_context":
+            "..."}, ...]}'
+        reasoning_format: separated
+        selected: false
+        title: Routing builder
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764439534679'
+      position:
+        x: 436.1955824946667
+        y: 409.7859506835366
+      positionAbsolute:
+        x: 436.1955824946667
+        y: 409.7859506835366
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        break_conditions:
+        - comparison_operator: ≥
+          id: 9f99d357-a88f-4ac0-a91f-a2d6be8fe810
+          value: '0.6'
+          varType: number
+          variable_selector:
+          - '1764440599562'
+          - cr
+        error_handle_mode: terminated
+        height: 1585
+        logical_operator: and
+        loop_count: 3
+        loop_variables:
+        - id: a7911f1b-3d1f-4c11-b669-6cc584d17eba
+          label: consensus
+          value:
+          - '1764452615230'
+          - consensus
+          value_type: variable
+          var_type: string
+        - id: dd1e4514-8664-435b-b19b-0127bcb0b37d
+          label: cr
+          value: '0'
+          value_type: constant
+          var_type: number
+        - id: 729f25b1-b282-44db-854c-fc3fa392f333
+          label: material
+          value:
+          - '1764452615230'
+          - material
+          value_type: variable
+          var_type: string
+        - id: a306a841-bcad-4a29-af28-6a547e5fbc96
+          label: structure
+          value:
+          - '1764452615230'
+          - structure
+          value_type: variable
+          var_type: string
+        - id: a5dca781-da96-4a06-8e95-4cf5801d5d61
+          label: xizhuang
+          value:
+          - '1764452615230'
+          - xizhuang
+          value_type: variable
+          var_type: string
+        - id: 2d24428e-43c9-4691-be55-6fe6da96f958
+          label: quality
+          value:
+          - '1764452615230'
+          - quality
+          value_type: variable
+          var_type: string
+        - id: 38602386-007a-43ac-aef8-5796a36770b3
+          label: electronic
+          value:
+          - '1764452615230'
+          - electronic
+          value_type: variable
+          var_type: string
+        - id: a9ab7fbd-3a85-4ea3-b57a-34a29785478a
+          label: lunji
+          value:
+          - '1764452615230'
+          - lunji
+          value_type: variable
+          var_type: string
+        - id: fb9d7fd3-e698-47dd-89f8-bbec4195afea
+          label: eval_material
+          value:
+          - '1764452615230'
+          - eval_material
+          value_type: variable
+          var_type: string
+        - id: 8df2678d-9074-426d-b67b-76e08e91ddb6
+          label: eval_structure
+          value:
+          - '1764452615230'
+          - structure
+          value_type: variable
+          var_type: string
+        - id: 4d40c257-561f-46cd-89ee-9730ede946c1
+          label: eval_xizhuang
+          value:
+          - '1764452615230'
+          - xizhuang
+          value_type: variable
+          var_type: string
+        - id: d4c75012-330c-4e44-ac32-2f5a7f1bd900
+          label: eval_quality
+          value:
+          - '1764452615230'
+          - quality
+          value_type: variable
+          var_type: string
+        - id: 0f88e8b1-554a-44e1-a6f7-faee66bfb2eb
+          label: eval_electronic
+          value:
+          - '1764452615230'
+          - eval_electronic
+          value_type: variable
+          var_type: string
+        - id: d3c8a7a1-8ddd-4780-b122-553d76e0c3d2
+          label: eval_lunji
+          value:
+          - '1764452615230'
+          - eval_lunji
+          value_type: variable
+          var_type: string
+        selected: false
+        start_node_id: 1764440599562start
+        title: 循环
+        type: loop
+        width: 3526
+      height: 1585
+      id: '1764440599562'
+      position:
+        x: -925.4713742445743
+        y: 625.4834800424466
+      positionAbsolute:
+        x: -925.4713742445743
+        y: 625.4834800424466
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 3526
+      zIndex: 1
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: 1764440599562start
+      parentId: '1764440599562'
+      position:
+        x: 60
+        y: 599
+      positionAbsolute:
+        x: -865.4713742445743
+        y: 1224.4834800424464
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1764442507095'
+          - E01_context
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 96903dc5-db18-4820-9ca2-d24c4c237be8
+          role: system
+          text: "【Role】: 你是一名结构设计专家  \n【Task】: 你的任务是基于历史案例以及上一轮与其他专家讨论结果，评估所提工程变更对结构强度、承载能力及空间干涉的影响。\
+            \  \n【指令】:  \n1. 严格从结构工程师视角出发分析问题；  \n2. 判断变更是否导致框架强度不足、应力集中或违反船体结构规范；\
+            \  \n3. 明确指出是否需要加强、避让或重新定位，并说明理由；  \n4. 若无结构风险，请明确声明“无结构风险”。  \n【输入】\n\
+            - 历史案例：{{#context#}}\n- 上一轮讨论结果：{{#1764452615230.consensus#}}\n/no_think"
+        selected: false
+        title: 结构设计专家
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764440608466'
+      parentId: '1764440599562'
+      position:
+        x: 519.9333508528257
+        y: 288.35240097465794
+      positionAbsolute:
+        x: -405.53802339174865
+        y: 913.8358810171045
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1764442507095'
+          - E02_context
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 71e4b03b-2238-4c59-9608-746ab56077a3
+          role: system
+          text: "【Role】: 你是一名舾装工艺专家  \n【Task】: 你的任务是基于历史案例以及上一轮与其他专家讨论结果，评估所提变更在安装可行性、施工顺序及工艺可实施性方面的影响。\
+            \  \n【Instruction】:  \n1. 严格从舾装工程师视角出发分析问题；  \n2. 判断是否与现有舾装件干涉、是否需返工、是否影响装配流程；\
+            \  \n3. 评估焊接、螺栓连接或检验的可操作性；  \n4. 若当前方案不可行，请提出可行替代建议。  \n【输入】\n- 历史案例：{{#context#}}\n\
+            - 上一轮讨论结果：{{#1764452615230.consensus#}}\n/no_think"
+        selected: false
+        title: 舾装工艺专家
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764440656084'
+      parentId: '1764440599562'
+      position:
+        x: 519.9333508528257
+        y: 568.4825505279398
+      positionAbsolute:
+        x: -405.53802339174865
+        y: 1193.9660305703865
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1764442507095'
+          - E03_context
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 0ebebf4c-d3cd-477f-a51e-fed2710481c3
+          role: system
+          text: "【Role】: 你是一名质量与规范专家  \n【Task】: 你的任务是基于历史案例以及上一轮与其他专家讨论结果，验证所提变更是否符合船级社规范、国家标准（如\
+            \ DIN、ISO）及企业质量要求。  \n【Instruction】:  \n1. 严格从质量合规视角出发分析问题；  \n2. 明确引用适用的标准条款（如“DIN\
+            \ 83402”）；  \n3. 指出缺失的认证、不合规项或未记录的偏差；  \n4. 若合规，请说明依据并确认可接受。  \n【输入】\n\
+            - 历史案例：{{#context#}}\n- 上一轮讨论结果：{{#1764452615230.consensus#}}\n/no_think"
+        selected: false
+        title: 质量规范专家
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764440684060'
+      parentId: '1764440599562'
+      position:
+        x: 559.3677824547458
+        y: 781.3547518826877
+      positionAbsolute:
+        x: -366.10359178982856
+        y: 1406.838231925134
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1764442507095'
+          - E04_context
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: c5db8cba-12f2-48db-839d-b8fa8dbab053
+          role: system
+          text: "【Role】: 你是一名电气系统专家  \n【Task】: 你的任务是基于历史案例以及上一轮与其他专家讨论结果，评估所提变更对电缆敷设、传感器安装、防爆区域合规性等电气系统的影响。\
+            \  \n【Instruction】:  \n1. 严格从电气工程师视角出发分析问题；  \n2. 判断是否影响现有布线、接地、电磁屏蔽或维修通道；\
+            \  \n3. 评估是否需新增线槽、接线盒或安全间距；  \n4. 特别关注是否违反危险区域（如 Zone 1）的安装规定。  \n【输入】\n\
+            - 历史案例：{{#context#}}\n- 上一轮讨论结果：{{#1764452615230.consensus#}}\n/no_think"
+        selected: false
+        title: 电气专家
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764440696054'
+      parentId: '1764440599562'
+      position:
+        x: 566
+        y: 1330
+      positionAbsolute:
+        x: -359.47137424457435
+        y: 1955.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1764442507095'
+          - E05_context
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 013c5e9d-ce9e-4aa7-9bc1-f24cdcf6dee2
+          role: system
+          text: "【Role】: 你是一名轮机系统专家  \n【Task】: 你的任务是基于历史案例以及上一轮与其他专家的讨论结果，评估所提变更对轮机设备、管路接口、液位传感器及维护可达性的影响。\
+            \  \n【Instruction】:  \n1. 严格从轮机工程师视角出发分析问题；  \n2. 检查是否与泵、阀、管支架或检修口发生干涉；\
+            \  \n3. 判断是否阻碍流体通路或影响传感器（如溢流阀、液位开关）功能；  \n4. 若存在冲突，请提出调整建议以保障机械完整性与可维护性。\
+            \  \n【输入】\n- 历史案例：{{#context#}}\n- 上一轮讨论结果：{{#1764452615230.consensus#}}\n\
+            /no_think"
+        selected: false
+        title: 轮机专家
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764440713191'
+      parentId: '1764440599562'
+      position:
+        x: 546
+        y: 60
+      positionAbsolute:
+        x: -379.47137424457435
+        y: 685.4834800424466
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: d2c7609a-366e-4448-ae20-262fe600ba5a
+            numberVarType: constant
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E01_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 123
+      id: '1764441946690'
+      parentId: '1764440599562'
+      position:
+        x: 224
+        y: 302
+      positionAbsolute:
+        x: -701.4713742445743
+        y: 927.4834800424466
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: a243673a-27cd-4423-903e-b50896311f65
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E02_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 2
+        type: if-else
+      height: 123
+      id: '1764441976290'
+      parentId: '1764440599562'
+      position:
+        x: 224
+        y: 558
+      positionAbsolute:
+        x: -701.4713742445743
+        y: 1183.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: 74b3b104-036f-489a-b382-21da0459da7b
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E03_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 3
+        type: if-else
+      height: 123
+      id: '1764442000874'
+      parentId: '1764440599562'
+      position:
+        x: 204
+        y: 771
+      positionAbsolute:
+        x: -721.4713742445743
+        y: 1396.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: f3157455-bea1-41cc-a67e-da09e56fa513
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E03_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 4
+        type: if-else
+      height: 123
+      id: '1764442023300'
+      parentId: '1764440599562'
+      position:
+        x: 224
+        y: 1291
+      positionAbsolute:
+        x: -701.4713742445743
+        y: 1916.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: df82935e-b83f-433f-b94d-293e7b4d6af0
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E05_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 5
+        type: if-else
+      height: 123
+      id: '1764442044379'
+      parentId: '1764440599562'
+      position:
+        x: 204
+        y: 63
+      positionAbsolute:
+        x: -721.4713742445743
+        y: 688.4834800424466
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: 50e230ff-9c4d-4bf8-8e10-4906f190c546
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E06_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 6
+        type: if-else
+      height: 123
+      id: '1764442059789'
+      parentId: '1764440599562'
+      position:
+        x: 224
+        y: 1031
+      positionAbsolute:
+        x: -701.4713742445743
+        y: 1656.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1764442507095'
+          - E06_context
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 2879ba03-bcac-48e9-b0f5-0ec748c4ff50
+          role: system
+          text: "【Role】: 你是一名材料与焊接专家  \n【Task】: 你的任务是基于历史案例以及上一轮与其他专家讨论结果，评估所提变更在材料匹配性、焊接工艺性及防腐要求方面的合规性。\
+            \  \n【Instruction】:  \n1. 严格从材料工程师视角出发分析问题；  \n2. 验证材料牌号与厚度是否满足结构与环境要求；\
+            \  \n3. 评估焊接位置、接头形式、热影响区是否可接受；  \n4. 警示可能的电化学腐蚀、氢脆或涂层失效风险。  \n【输入】\n-\
+            \ 历史案例：{{#context#}}\n- 上一轮讨论结果：{{#1764452615230.consensus#}}\n/no_think"
+        selected: false
+        title: 材料与焊接专家
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764442076133'
+      parentId: '1764440599562'
+      position:
+        x: 566
+        y: 1070
+      positionAbsolute:
+        x: -359.47137424457435
+        y: 1695.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "import json\n\nEXPERT_ORDER = [\n    (\"结构设计\", \"E01\"),\n    (\"\
+          舾装工艺\", \"E02\"),\n    (\"质量规范\", \"E03\"),\n    (\"电气系统\", \"E04\"),\n\
+          \    (\"轮机系统\", \"E05\"),\n    (\"材料与焊接\", \"E06\")\n]\n\ndef main(llm_output:\
+          \ str) -> dict:\n    \"\"\"\n    将 LLM 输出的 routing_table 按固定顺序映射为 E01_weight,\
+          \ E01_context 等字段。\n    仅保留 weight > 0 的专家；若未出现或 weight <= 0，则设为 0 和空字符串。\n\
+          \    \"\"\"\n    # 初始化输出字典\n    result = {}\n    for _, prefix in EXPERT_ORDER:\n\
+          \        result[f\"{prefix}_weight\"] = 0.0\n        result[f\"{prefix}_context\"\
+          ] = \"\"\n\n    try:\n        cleaned_output = llm_output.strip()\n    \
+          \    if '```json' in cleaned_output or '```' in cleaned_output:\n      \
+          \      # 使用正则表达式提取JSON部分\n            json_match = re.search(r'```(?:json)?\\\
+          s*\\n*(.*?)\\n*\\s*```', cleaned_output, re.DOTALL)\n            if json_match:\n\
+          \                cleaned_output = json_match.group(1).strip()\n        \
+          \    else:\n                # 如果正则匹配失败，尝试简单移除markdown标记\n              \
+          \  lines = cleaned_output.split('\\n')\n                json_lines = []\n\
+          \                in_json_block = False\n                for line in lines:\n\
+          \                    stripped = line.strip()\n                    if stripped.startswith('```'):\n\
+          \                        in_json_block = not in_json_block\n           \
+          \             continue\n                    if in_json_block or (not in_json_block\
+          \ and stripped):\n                        if not in_json_block and stripped.startswith('```'):\n\
+          \                            continue\n                        json_lines.append(line)\n\
+          \                cleaned_output = '\\n'.join(json_lines).strip()\n     \
+          \   data = json.loads(cleaned_output.strip())\n        routing_table = data.get(\"\
+          routing_table\", [])\n\n        # 构建 role -> (weight, context) 的映射\n   \
+          \     role_map = {}\n        for item in routing_table:\n            role\
+          \ = str(item.get(\"expert_role\", \"\")).strip()\n            weight = float(item.get(\"\
+          weight\", 0))\n            context = str(item.get(\"retrieved_context\"\
+          , \"\"))\n            if weight > 0 and role:\n                role_map[role]\
+          \ = (weight, context)\n\n        # 按固定顺序填充\n        for role, prefix in\
+          \ EXPERT_ORDER:\n            if role in role_map:\n                w, c\
+          \ = role_map[role]\n                result[f\"{prefix}_weight\"] = w\n \
+          \               result[f\"{prefix}_context\"] = c\n            # 否则保留默认\
+          \ 0 和 \"\"\n\n    except Exception:\n        # 解析失败时保持默认值（全0）\n        pass\n\
+          \n    return {\"E01_weight\": result[\"E01_weight\"],\n    \"E01_context\"\
+          : result[\"E01_context\"],\n    \"E02_weight\": result[\"E02_weight\"],\n\
+          \    \"E02_context\": result[\"E02_context\"],\n    \"E03_weight\": result[\"\
+          E03_weight\"],\n    \"E03_context\": result[\"E03_context\"],\n    \"E04_weight\"\
+          : result[\"E04_weight\"],\n    \"E04_context\": result[\"E04_context\"],\n\
+          \    \"E05_weight\": result[\"E05_weight\"],\n    \"E05_context\": result[\"\
+          E05_context\"],\n    \"E06_weight\": result[\"E06_weight\"],\n    \"E06_context\"\
+          : result[\"E06_context\"]}"
+        code_language: python3
+        outputs:
+          E01_context:
+            children: null
+            type: string
+          E01_weight:
+            children: null
+            type: number
+          E02_context:
+            children: null
+            type: string
+          E02_weight:
+            children: null
+            type: number
+          E03_context:
+            children: null
+            type: string
+          E03_weight:
+            children: null
+            type: number
+          E04_context:
+            children: null
+            type: string
+          E04_weight:
+            children: null
+            type: number
+          E05_context:
+            children: null
+            type: string
+          E05_weight:
+            children: null
+            type: number
+          E06_context:
+            children: null
+            type: string
+          E06_weight:
+            children: null
+            type: number
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1764439534679'
+          - text
+          value_type: string
+          variable: llm_output
+      height: 51
+      id: '1764442507095'
+      position:
+        x: 773.433379338762
+        y: 421.43634647566387
+      positionAbsolute:
+        x: 773.433379338762
+        y: 421.43634647566387
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 86ad4c3d-eb39-44bc-a68f-c11b730aaf30
+          role: system
+          text: "【Role】: 你是在多智能体工程变更协同系统中的整合智能体  \n【Task】: 你的任务是将各专家的评估意见融合为一份连贯的初步共识结论，识别其中存在的专业冲突、信息缺失或逻辑不一致之处，并为后续的共识投票阶段准备结构化输入\
+            \  \n【Instruction】:  \n1. 全面考虑所有被激活专家的评估内容；  \n2. 明确标注意见一致的要点，以及存在分歧或未覆盖的关键问题（如“结构认为可行，但舾装指出空间干涉”）；\
+            \  \n3. 若某专业无反馈，需注明“该领域未提供评估”；  \n4. 语言简洁、客观，避免引入个人观点或推测。  \n【输入】\n- 结构设计专家意见：{{#1764440599562.structure#}}\n\
+            - 舾装工艺专家意见：{{#1764440599562.xizhuang#}}\n- 质量规范专家意见：{{#1764440599562.quality#}}\n\
+            - 电气专家意见：{{#1764440599562.electronic#}}\n- 轮机专家意见：{{#1764440599562.lunji#}}\n\
+            - 材料与焊接专家意见：{{#1764440599562.material#}}\n/no_think"
+        selected: false
+        title: 整合
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764446429011'
+      parentId: '1764440599562'
+      position:
+        x: 1230
+        y: 723.3195079107729
+      positionAbsolute:
+        x: 304.52862575542565
+        y: 1348.8029879532196
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: constant
+          operation: set
+          value: 'null'
+          variable_selector:
+          - '1764440599562'
+          - structure
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 9
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769398030815'
+      parentId: '1764440599562'
+      position:
+        x: 541.4033064164981
+        y: 398.8142218932778
+      positionAbsolute:
+        x: -384.0680678280762
+        y: 1024.2977019357245
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: constant
+          operation: set
+          value: 'null'
+          variable_selector:
+          - '1764440599562'
+          - xizhuang
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 10
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769398063296'
+      parentId: '1764440599562'
+      position:
+        x: 558.3825768071782
+        y: 675.6538965074758
+      positionAbsolute:
+        x: -367.0887974373961
+        y: 1301.1373765499225
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: constant
+          operation: set
+          value: 'null'
+          variable_selector:
+          - '1764440599562'
+          - quality
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 11
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769398097032'
+      parentId: '1764440599562'
+      position:
+        x: 576.7216371252041
+        y: 895.7746566256667
+      positionAbsolute:
+        x: -348.74973711937025
+        y: 1521.2581366681134
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: constant
+          operation: set
+          value: 'null'
+          variable_selector:
+          - '1764440599562'
+          - electronic
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 13
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769398165538'
+      parentId: '1764440599562'
+      position:
+        x: 566
+        y: 1218
+      positionAbsolute:
+        x: -359.47137424457435
+        y: 1843.4834800424464
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: constant
+          operation: set
+          value: 'null'
+          variable_selector:
+          - '1764440599562'
+          - lunji
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 8
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769397971801'
+      parentId: '1764440599562'
+      position:
+        x: 598.6475990253421
+        y: 173.99842562946662
+      positionAbsolute:
+        x: -326.8237752192323
+        y: 799.4819056719132
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: constant
+          operation: set
+          value: 'null'
+          variable_selector:
+          - '1764440599562'
+          - material
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 12
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769398130018'
+      parentId: '1764440599562'
+      position:
+        x: 577.458099246925
+        y: 996.1936641564166
+      positionAbsolute:
+        x: -348.0132749976493
+        y: 1621.677144198863
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: 0602c978-1c17-4cd0-a272-8d32ddf2c5e0
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E01_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 7
+        type: if-else
+      height: 123
+      id: '1764448006903'
+      parentId: '1764440599562'
+      position:
+        x: 1572
+        y: 450
+      positionAbsolute:
+        x: 646.5286257554257
+        y: 1075.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: 1ea6044f-1674-47cc-bde7-590df8c3d8df
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E02_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 8
+        type: if-else
+      height: 123
+      id: '1764448312679'
+      parentId: '1764440599562'
+      position:
+        x: 1572
+        y: 698
+      positionAbsolute:
+        x: 646.5286257554257
+        y: 1323.4834800424464
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: 6bc7e549-55f9-4cda-80ff-0d19644f6f1b
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E03_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 9
+        type: if-else
+      height: 123
+      id: '1764448326843'
+      parentId: '1764440599562'
+      position:
+        x: 1572
+        y: 882
+      positionAbsolute:
+        x: 646.5286257554257
+        y: 1507.4834800424464
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: 9e799ae1-1e24-4ac8-a0c5-8ceb532056ae
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E04_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 10
+        type: if-else
+      height: 123
+      id: '1764448340381'
+      parentId: '1764440599562'
+      position:
+        x: 1572
+        y: 1142
+      positionAbsolute:
+        x: 646.5286257554257
+        y: 1767.4834800424464
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: a57376f9-6cc1-4cd9-97a7-9c2b2b9e9b80
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E05_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 11
+        type: if-else
+      height: 123
+      id: '1764448352380'
+      parentId: '1764440599562'
+      position:
+        x: 1572
+        y: 1402
+      positionAbsolute:
+        x: 646.5286257554257
+        y: 2027.4834800424464
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≠
+            id: 52d4a77c-9f0d-481a-8de2-3a85364e0eb7
+            value: '0.0'
+            varType: number
+            variable_selector:
+            - '1764442507095'
+            - E06_weight
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        selected: false
+        title: 条件分支 12
+        type: if-else
+      height: 123
+      id: '1764448362991'
+      parentId: '1764440599562'
+      position:
+        x: 1572
+        y: 172
+      positionAbsolute:
+        x: 646.5286257554257
+        y: 797.4834800424466
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 8e8c2669-e141-43cd-877b-39ce78719b6f
+          role: system
+          text: "[Role]: 你是在多智能体工程变更协同系统中参与共识评估的专家智能体  \n[Task]: 你的任务是评估当前聚合生成的协作结论是否准确反映你此前的专业意见，以及该结论是否具备可实施性。如果你认为该变更方案可按所述内容执行，且未歪曲你的专业判断，请评分为\
+            \ 1；如果你认为聚合结论曲解、忽略或遗漏了你提出的关键条件、风险或建议，请评分为 0。  \n[Instruction]:  \n1. 将当前共识草案与你此前提交的原始评估进行比对；\
+            \  \n2. 重点关注是否存在以下问题：关键约束被省略、技术细节失真，或引入了你未认可的新假设；  \n3. 若共识结论在保留你核心观点的前提下进行了合理概括，即使措辞不同，也可视为可接受；\n\
+            4. 若共识结论与此前观点不同，但共识结论在没有忽略关键约束的前提下具有合理性，也可视为接受   \n[input]：\n- 此前的意见：{{#1764440608466.text#}}\n\
+            - 整合意见：{{#1764446429011.text#}}\n[output]输出一个符合以下结构的字符串{”consensus_score“:0或1}\n\
+            /no_think"
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              consensus_score:
+                type: boolean
+            required: []
+            type: object
+        structured_output_enabled: false
+        title: 结构设计-评估
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764448503960'
+      parentId: '1764440599562'
+      position:
+        x: 1914
+        y: 359
+      positionAbsolute:
+        x: 988.5286257554257
+        y: 984.4834800424466
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 34e23e0e-fdc7-48b5-9bc0-857a36692501
+          role: system
+          text: "[Role]: 你是在多智能体工程变更协同系统中参与共识评估的专家智能体  \n[Task]: 你的任务是评估当前聚合生成的协作结论是否准确反映你此前的专业意见，以及该结论是否具备可实施性。如果你认为该变更方案可按所述内容执行，且未歪曲你的专业判断，请评分为\
+            \ 1；如果你认为聚合结论曲解、忽略或遗漏了你提出的关键条件、风险或建议，请评分为 0。  \n[Instruction]:  \n1. 将当前共识草案与你此前提交的原始评估进行比对；\
+            \  \n2. 重点关注是否存在以下问题：关键约束被省略、技术细节失真，或引入了你未认可的新假设；  \n3. 若共识结论在保留你核心观点的前提下进行了合理概括，即使措辞不同，也可视为可接受；\n\
+            4. 若共识结论与此前观点不同，但共识结论在没有忽略关键约束的前提下具有合理性，也可视为接受\n[input]：\n- 此前的意见：{{#1764440656084.text#}}\n\
+            - 整合意见：{{#1764446429011.text#}}\n[output]输出一个符合以下结构的字符串{”consensus_score“:0或1}\n\
+            /no_think"
+        selected: false
+        title: 舾装工艺-评估
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764448661424'
+      parentId: '1764440599562'
+      position:
+        x: 1914
+        y: 619
+      positionAbsolute:
+        x: 988.5286257554257
+        y: 1244.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: f843a308-45fa-4b90-b144-f940e8667eec
+          role: system
+          text: "[Role]: 你是在多智能体工程变更协同系统中参与共识评估的专家智能体  \n[Task]: 你的任务是评估当前聚合生成的协作结论是否准确反映你此前的专业意见，以及该结论是否具备可实施性。如果你认为该变更方案可按所述内容执行，且未歪曲你的专业判断，请评分为\
+            \ 1；如果你认为聚合结论曲解、忽略或遗漏了你提出的关键条件、风险或建议，请评分为 0。  \n[Instruction]:  \n1. 将当前共识草案与你此前提交的原始评估进行比对；\
+            \  \n2. 重点关注是否存在以下问题：关键约束被省略、技术细节失真，或引入了你未认可的新假设；  \n3. 若共识结论在保留你核心观点的前提下进行了合理概括，即使措辞不同，也可视为可接受；\n\
+            4. 若共识结论与此前观点不同，但共识结论在没有忽略关键约束的前提下具有合理性，也可视为接受\n[input]：\n- 此前的意见：{{#1764440684060.text#}}\n\
+            - 整合意见：{{#1764446429011.text#}}\n[output]输出一个符合以下结构的字符串{”consensus_score“:0或1}\n\
+            /no_think"
+        selected: false
+        title: 质量规范-评估
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764448723362'
+      parentId: '1764440599562'
+      position:
+        x: 1904.4755936881907
+        y: 826.6157652850493
+      positionAbsolute:
+        x: 979.0042194436163
+        y: 1452.0992453274957
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: d77c8785-dd5e-4794-a916-0fff46216c3d
+          role: system
+          text: "[Role]: 你是在多智能体工程变更协同系统中参与共识评估的专家智能体  \n[Task]: 你的任务是评估当前聚合生成的协作结论是否准确反映你此前的专业意见，以及该结论是否具备可实施性。如果你认为该变更方案可按所述内容执行，且未歪曲你的专业判断，请评分为\
+            \ 1；如果你认为聚合结论曲解、忽略或遗漏了你提出的关键条件、风险或建议，请评分为 0。  \n[Instruction]:  \n1. 将当前共识草案与你此前提交的原始评估进行比对；\
+            \  \n2. 重点关注是否存在以下问题：关键约束被省略、技术细节失真，或引入了你未认可的新假设；  \n3. 若共识结论在保留你核心观点的前提下进行了合理概括，即使措辞不同，也可视为可接受；\n\
+            4. 若共识结论与此前观点不同，但共识结论在没有忽略关键约束的前提下具有合理性，也可视为接受\n[input]：\n- 此前的意见：{{#1764440696054.text#}}\n\
+            - 整合意见：{{#1764446429011.text#}}\n[output]输出一个符合以下结构的字符串{”consensus_score“:0或1}\n\
+            /no_think"
+        selected: false
+        title: 电气专家-评估
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764448735475'
+      parentId: '1764440599562'
+      position:
+        x: 1914
+        y: 1139
+      positionAbsolute:
+        x: 988.5286257554257
+        y: 1764.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 889f7854-5d26-4ce3-9d1a-b60c38610f80
+          role: system
+          text: "[Role]: 你是在多智能体工程变更协同系统中参与共识评估的专家智能体  \n[Task]: 你的任务是评估当前聚合生成的协作结论是否准确反映你此前的专业意见，以及该结论是否具备可实施性。如果你认为该变更方案可按所述内容执行，且未歪曲你的专业判断，请评分为\
+            \ 1；如果你认为聚合结论曲解、忽略或遗漏了你提出的关键条件、风险或建议，请评分为 0。  \n[Instruction]:  \n1. 将当前共识草案与你此前提交的原始评估进行比对；\
+            \  \n2. 重点关注是否存在以下问题：关键约束被省略、技术细节失真，或引入了你未认可的新假设；  \n3. 若共识结论在保留你核心观点的前提下进行了合理概括，即使措辞不同，也可视为可接受；\n\
+            4. 若共识结论与此前观点不同，但共识结论在没有忽略关键约束的前提下具有合理性，也可视为接受\n[input]：\n- 此前的意见：{{#1764440713191.text#}}\n\
+            - 整合意见：{{#1764446429011.text#}}\n[output]输出一个符合以下结构的字符串{”consensus_score“:0或1}\n\
+            /no_think"
+        selected: false
+        title: 轮机专家-评估
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764448757108'
+      parentId: '1764440599562'
+      position:
+        x: 1911.1054615251192
+        y: 1312.1638457535773
+      positionAbsolute:
+        x: 985.6340872805448
+        y: 1937.6473257960238
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3:8b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 4e65787f-89e6-4a6b-84ee-1c203042c3de
+          role: system
+          text: "[Role]: 你是在多智能体工程变更协同系统中参与共识评估的专家智能体  \n[Task]: 你的任务是评估当前协作结论是否反映你此前的专业意见，以及该结论是否具备可实施性。如果你认为该变更方案可按所述内容执行，且未歪曲你的专业判断，请评分为\
+            \ 1；如果你认为聚合结论曲解、忽略或遗漏了你提出的关键条件、风险或建议，请评分为 0。  \n[Instruction]:  \n1. 将当前共识草案与你此前提交的原始评估进行比对；\
+            \  \n2. 重点关注是否存在以下问题：关键约束被省略、技术细节失真，或引入了你未认可的新假设；  \n3. 若共识结论在保留你核心观点的前提下进行了合理概括，即使措辞不同，也可视为可接受；\n\
+            4. 若共识结论与此前观点不同，但共识结论在没有忽略关键约束的前提下具有合理性，也可视为接受\n[input]：\n- 此前的意见：{{#1764442076133.text#}}\n\
+            - 整合意见：{{#1764446429011.text#}}\n[output]输出一个符合以下结构的字符串{”consensus_score“:0或1}\n\
+            /no_think"
+        selected: false
+        title: 材料与焊接专家-评估
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1764448763935'
+      parentId: '1764440599562'
+      position:
+        x: 1904.4515839608957
+        y: 151.79982055755414
+      positionAbsolute:
+        x: 978.9802097163214
+        y: 777.2833006000008
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "import json\n\ndef safe_parse_consensus(s: str) -> int:\n    \"\"\"\
+          安全解析共识评分字符串，失败时返回 0\"\"\"\n    try:\n        data = json.loads(s.strip())\n\
+          \        score = data.get(\"consensus_score\", 0)\n        return 1 if score\
+          \ == 1 else 0\n    except:\n        return 0\n\ndef main(s01: str, s02:\
+          \ str, s03: str, s04: str, s05: str, s06: str, w01: float, w02: float, w03:\
+          \ float, w04: float, w05: float, w06: float):\n    weights = [w01,w02,w03,w04,w05,w06]\n\
+          \    results = [s01,s02,s03,s04,s05,s06]\n    weighted_sum = 0.0\n    for\
+          \ w, res in zip(weights, results):\n        if w > 0:  # 只处理被激活的专家\n   \
+          \         score = safe_parse_consensus(res)\n            weighted_sum +=\
+          \ w * score\n    consensus_rate = weighted_sum\n    return {\n        \"\
+          consensus_rate\": round(consensus_rate, 4)\n    }\n"
+        code_language: python3
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1764440599562'
+        outputs:
+          consensus_rate:
+            children: null
+            type: number
+        selected: false
+        title: 计算共识达成率
+        type: code
+        variables:
+        - value_selector:
+          - '1764440599562'
+          - eval_material
+          value_type: string
+          variable: s01
+        - value_selector:
+          - '1764440599562'
+          - eval_xizhuang
+          value_type: string
+          variable: s02
+        - value_selector:
+          - '1764440599562'
+          - eval_quality
+          value_type: string
+          variable: s03
+        - value_selector:
+          - '1764440599562'
+          - eval_electronic
+          value_type: string
+          variable: s04
+        - value_selector:
+          - '1764440599562'
+          - eval_lunji
+          value_type: string
+          variable: s05
+        - value_selector:
+          - '1764440599562'
+          - eval_material
+          value_type: string
+          variable: s06
+        - value_selector:
+          - '1764442507095'
+          - E01_weight
+          value_type: number
+          variable: w01
+        - value_selector:
+          - '1764442507095'
+          - E02_weight
+          value_type: number
+          variable: w02
+        - value_selector:
+          - '1764442507095'
+          - E03_weight
+          value_type: number
+          variable: w03
+        - value_selector:
+          - '1764442507095'
+          - E04_weight
+          value_type: number
+          variable: w04
+        - value_selector:
+          - '1764442507095'
+          - E05_weight
+          value_type: number
+          variable: w05
+        - value_selector:
+          - '1764442507095'
+          - E06_weight
+          value_type: number
+          variable: w06
+      height: 51
+      id: '1764449508377'
+      parentId: '1764440599562'
+      position:
+        x: 2825.687838445416
+        y: 756.5068570958604
+      positionAbsolute:
+        x: 1900.216464200842
+        y: 1381.990337138307
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "\ndef main():\n    return {\n        \"consensus\": \"专家共识\",\n   \
+          \     \"material\":\"None\",\n        \"structure\":\"None\",\n        \"\
+          xizhuang\":\"None\",\n        \"quality\":\"None\",\n        \"electronic\"\
+          :\"None\",\n        \"lunji\":\"None\",\n        \"eval_material\":\"None\"\
+          ,\n        \"eval_structure\":\"None\",\n        \"eval_xizhuang\":\"None\"\
+          ,\n        \"eval_quality\":\"None\",\n        \"eval_electronic\":\"None\"\
+          ,\n        \"eval_lunji\":\"None\"\n    }\n"
+        code_language: python3
+        outputs:
+          consensus:
+            children: null
+            type: string
+          electronic:
+            children: null
+            type: string
+          eval_electronic:
+            children: null
+            type: string
+          eval_lunji:
+            children: null
+            type: string
+          eval_material:
+            children: null
+            type: string
+          eval_quality:
+            children: null
+            type: string
+          eval_structure:
+            children: null
+            type: string
+          eval_xizhuang:
+            children: null
+            type: string
+          lunji:
+            children: null
+            type: string
+          material:
+            children: null
+            type: string
+          quality:
+            children: null
+            type: string
+          structure:
+            children: null
+            type: string
+          xizhuang:
+            children: null
+            type: string
+        selected: false
+        title: 生成循环变量
+        type: code
+        variables: []
+      height: 51
+      id: '1764452615230'
+      position:
+        x: 1139.2443951182852
+        y: 421.43634647566387
+      positionAbsolute:
+        x: 1139.2443951182852
+        y: 421.43634647566387
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764446429011'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - consensus
+          write_mode: over-write
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764449508377'
+          - consensus_rate
+          variable_selector:
+          - '1764440599562'
+          - cr
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值
+        type: assigner
+        version: '2'
+      height: 109
+      id: '1764453585959'
+      parentId: '1764440599562'
+      position:
+        x: 3172.599987777009
+        y: 752.9041397950614
+      positionAbsolute:
+        x: 2247.128613532435
+        y: 1378.3876198375078
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764442076133'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - material
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 2
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1768373403266'
+      parentId: '1764440599562'
+      position:
+        x: 888
+        y: 1072
+      positionAbsolute:
+        x: -37.47137424457435
+        y: 1697.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764440608466'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - material
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 3
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1768373598412'
+      parentId: '1764440599562'
+      position:
+        x: 829.8682760761849
+        y: 298.0301758325204
+      positionAbsolute:
+        x: -95.60309816838947
+        y: 923.513655874967
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764440656084'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - xizhuang
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 4
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1768373690396'
+      parentId: '1764440599562'
+      position:
+        x: 825.4809761574063
+        y: 537.577801137101
+      positionAbsolute:
+        x: -99.99039808716805
+        y: 1163.0612811795477
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764440684060'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - quality
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 5
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1768373727987'
+      parentId: '1764440599562'
+      position:
+        x: 821.1610877262708
+        y: 748.0577403620334
+      positionAbsolute:
+        x: -104.31028651830354
+        y: 1373.54122040448
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764440696054'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - electronic
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 6
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1768373782164'
+      parentId: '1764440599562'
+      position:
+        x: 888
+        y: 1332
+      positionAbsolute:
+        x: -37.47137424457435
+        y: 1957.4834800424464
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764440713191'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - lunji
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 7
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1768373801032'
+      parentId: '1764440599562'
+      position:
+        x: 855.0952506091612
+        y: 65
+      positionAbsolute:
+        x: -70.37612363541314
+        y: 690.4834800424466
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764448763935'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - eval_material
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 14
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769408600395'
+      parentId: '1764440599562'
+      position:
+        x: 2229.829099073475
+        y: 153.90192510279462
+      positionAbsolute:
+        x: 1304.3577248289007
+        y: 779.3854051452412
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764448503960'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - eval_structure
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 15
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769408660008'
+      parentId: '1764440599562'
+      position:
+        x: 2224.7844224788096
+        y: 372.71072071402773
+      positionAbsolute:
+        x: 1299.3130482342353
+        y: 998.1942007564743
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764448661424'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - eval_xizhuang
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 16
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769408813980'
+      parentId: '1764440599562'
+      position:
+        x: 2243.6571409298213
+        y: 615.0744204303971
+      positionAbsolute:
+        x: 1318.185766685247
+        y: 1240.5579004728438
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764448723362'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - eval_quality
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 17
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769408846869'
+      parentId: '1764440599562'
+      position:
+        x: 2243.7152987301133
+        y: 838.4689233971383
+      positionAbsolute:
+        x: 1318.243924485539
+        y: 1463.952403439585
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764448735475'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - eval_electronic
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 18
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769408866515'
+      parentId: '1764440599562'
+      position:
+        x: 2259.0099831696944
+        y: 1132.1335609351722
+      positionAbsolute:
+        x: 1333.5386089251201
+        y: 1757.6170409776187
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1764448757108'
+          - text
+          variable_selector:
+          - '1764440599562'
+          - eval_lunji
+          write_mode: over-write
+        loop_id: '1764440599562'
+        selected: false
+        title: 变量赋值 19
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769408886690'
+      parentId: '1764440599562'
+      position:
+        x: 2258.522559273918
+        y: 1313.4740037490099
+      positionAbsolute:
+        x: 1333.0511850293437
+        y: 1938.9574837914565
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    viewport:
+      x: 100.54188967065193
+      y: 37.05377016727357
+      zoom: 0.5063047998968222
+  rag_pipeline_variables: []
