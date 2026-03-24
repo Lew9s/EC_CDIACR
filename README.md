@@ -109,11 +109,14 @@ Available API endpoints:
 
 ## Acknowledgments & Third-Party Libraries
 This project is developed based on the following outstanding open-source projects. We sincerely thank the developers and communities for their contributions:
-LlamaIndex: Provides core knowledge graph indexing, retrieval, and LLM orchestration functionalities.
-Repository: https://github.com/run-llama/llama_index
-Dify: Supports the multi-agent workflow, consensus mechanism, and visual orchestration system.
-Official Website: https://dify.ai
-Repository: https://github.com/langgenius/dify
+
+**LlamaIndex**: Provides core knowledge graph indexing, retrieval, and LLM orchestration functionalities.
+- Repository: https://github.com/run-llama/llama_index
+
+**Dify**: Supports the multi-agent workflow, consensus mechanism, and visual orchestration system.
+- Official Website: https://dify.ai
+- Repository: https://github.com/langgenius/dify
+
 We fully comply with their respective open-source licenses and retain all original copyright statements.
 
 ## License Compliance
