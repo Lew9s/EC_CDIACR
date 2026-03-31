@@ -471,7 +471,7 @@ box-shadow:0 2px 6px rgba(0,0,0,0.2);
 </div>
 """
         # Generate HTML content instead of writing to file
-        html_content = net.html()
+        html_content = net.html
         html_content = html_content.replace("<body>", "<body>" + legend_html)
         return html_content
 
