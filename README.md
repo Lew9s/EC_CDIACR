@@ -70,8 +70,8 @@ EXTRACTION_PROMPT="You are a professional knowledge graph information extraction
 1. Prepare your engineering change order data and place it in the configured data path.
 2. Run the knowledge graph construction script:
 ```bash
-cd Intelligent\ Retrieval
-python llamaindex.py
+cd modules
+python RAG.py
 ```
 
 This script will:
@@ -82,7 +82,7 @@ This script will:
 ### Step 2: Launch the API Service
 Start the FastAPI-based knowledge retrieval service:
 ```bash
-python run_app.py
+python app.py
 ```
 
 Available API endpoints:
