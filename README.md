@@ -55,9 +55,9 @@ DATA_PATH=/path/to/your/change/order/data
 CYPHER_QUERY="MATCH (comp:COMPONENT {name: $component_name})..."
 
 # Schema Configuration
-ENTITIES_LIST="CHANGE_ORDER,COMPONENT, ..."
-RELATIONS_LIST="MODIFIES,SIGNED_BY, ..."
-VALIDATION_SCHEMA="{\"CHANGE_ORDER\": [\"MODIFIES\", \"SIGNED_BY\", ...]}"
+ENTITIES_LIST="CHANGE_ORDER,COMPONENT,DEPARTMENT,REASON,TIME_POINT"
+RELATIONS_LIST="MODIFIES,SIGNED_BY,HAS_REASON,OCCURS_AT,PART_OF"
+VALIDATION_SCHEMA="{\"CHANGE_ORDER\": [\"MODIFIES\", \"SIGNED_BY\", \"HAS_REASON\", \"OCCURS_AT\"], ...}"
 
 # Prompt Configuration
 EXTRACTION_PROMPT="You are a professional knowledge graph information extraction assistant..."
@@ -117,3 +117,9 @@ This project is developed based on the following outstanding open-source project
 
 
 We fully comply with their respective open-source licenses and retain all original copyright statements.
+
+## License Compliance
+This project is licensed under the GPL-3.0 license.
+The use of third-party libraries is subject to their own licenses:
+LlamaIndex: MIT License
+Dify: Apache License 2.0
