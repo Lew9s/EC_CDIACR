@@ -3,25 +3,20 @@
 This repository implements a knowledge-enhanced framework for generating engineering change proposals. Centered on multi-agent cross-departmental information aggregation and consensus reaching, the framework integrates interactive expert-in-the-loop mechanisms to enhance interpretability and practicality.
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 79c081a942a169553db5c8d2cde9817b8769132b
 ## System Architecture
-The framework consists of two tightly integrated core modules:
+The framework consists of three tightly integrated core modules:
 
 1. **Intelligent Retrieval Module**: A knowledge graph retrieval system powered by LlamaIndex and Neo4j, enabling efficient knowledge management and reasoning.
 2. **Dify Workflow Module**: A consensus-driven multi-agent framework that simulates realistic cross-departmental decision-making interactions.
+3. **Explainability Module**: An advanced visualization and analysis module for enhanced explainability.
 
 ## Core Functionalities
 - **Knowledge Graph Construction**: Automatically extract entities and semantic relationships from engineering change order data to construct a structured knowledge graph.
 - **Intelligent Search & Reasoning**: Support natural language-based graph queries, knowledge reasoning, and semantic retrieval.
 - **Automated Cross-Departmental Evaluation Workflow**: A consensus-oriented multi-agent architecture designed to simulate the full lifecycle of cross-departmental evaluation. Domain-specific agents decompose complex decision-making processes into interpretable, role-based reasoning steps.
+- **Explainability Visualization**: An interactive visualization tool that allows users to explore the knowledge graph, track the decision-making process, and understand the reasoning behind the final proposal.
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 79c081a942a169553db5c8d2cde9817b8769132b
 ## Environmental Preparation
 
 ### 1. System Requirements
@@ -60,18 +55,15 @@ DATA_PATH=/path/to/your/change/order/data
 CYPHER_QUERY="MATCH (comp:COMPONENT {name: $component_name})..."
 
 # Schema Configuration
-ENTITIES_LIST="CHANGE_ORDER,COMPONENT,DEPARTMENT,REASON,TIME_POINT"
-RELATIONS_LIST="MODIFIES,SIGNED_BY,HAS_REASON,OCCURS_AT,PART_OF"
-VALIDATION_SCHEMA="{\"CHANGE_ORDER\": [\"MODIFIES\", \"SIGNED_BY\", \"HAS_REASON\", \"OCCURS_AT\"], ...}"
+ENTITIES_LIST="CHANGE_ORDER,COMPONENT, ..."
+RELATIONS_LIST="MODIFIES,SIGNED_BY, ..."
+VALIDATION_SCHEMA="{\"CHANGE_ORDER\": [\"MODIFIES\", \"SIGNED_BY\", ...]}"
 
 # Prompt Configuration
 EXTRACTION_PROMPT="You are a professional knowledge graph information extraction assistant..."
 ```
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 79c081a942a169553db5c8d2cde9817b8769132b
 ## Execution Steps
 
 ### Step 1: Build the Knowledge Graph
@@ -95,6 +87,7 @@ python run_app.py
 
 Available API endpoints:
 - `/query`: Execute natural language queries against the knowledge graph
+- `/visualize`: Analyze engineering proposals and generate interactive knowledge graph visualizations
 - `/health`: Service health check
 
 ### Step 3: Configure the Dify Workflow
@@ -113,7 +106,7 @@ Available API endpoints:
 
 ## Acknowledgments
 This project is developed based on the following outstanding open-source projects. We sincerely thank the developers and communities for their contributions:
-<<<<<<< HEAD
+
 
 **LlamaIndex**: Provides core knowledge graph indexing, retrieval, and LLM orchestration functionalities.
 - Repository: https://github.com/run-llama/llama_index
@@ -122,17 +115,5 @@ This project is developed based on the following outstanding open-source project
 - Official Website: https://dify.ai
 - Repository: https://github.com/langgenius/dify
 
-=======
-**LlamaIndex**: Provides core knowledge graph indexing, retrieval, and LLM orchestration functionalities.
-- Repository: https://github.com/run-llama/llama_index
-**Dify**: Supports the multi-agent workflow, consensus mechanism, and visual orchestration system.
-- Official Website: https://dify.ai
-- Repository: https://github.com/langgenius/dify
->>>>>>> 79c081a942a169553db5c8d2cde9817b8769132b
+
 We fully comply with their respective open-source licenses and retain all original copyright statements.
-
-## License Compliance
-This project is licensed under the GPL-3.0 license.
-The use of third-party libraries is subject to their own licenses:
-LlamaIndex: MIT License
-Dify: Apache License 2.0

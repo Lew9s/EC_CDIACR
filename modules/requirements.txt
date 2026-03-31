@@ -8,3 +8,7 @@ pydantic==1.10.13
 python-dotenv==1.0.0
 neo4j==5.15.0
 nest-asyncio==1.5.8
+ollama==0.3.3
+numpy==1.26.0
+networkx==3.2.1
+pyvis==0.3.2

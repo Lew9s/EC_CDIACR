@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from typing import List, Dict, Any
 from llama_index.core import PropertyGraphIndex
@@ -15,6 +16,8 @@ import uvicorn
 import logging
 import os
 from config import settings
+from neo4j import GraphDatabase
+from explainability_module import ExplainabilityModule
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -89,6 +92,45 @@ async def query(request:QueryRequest):
     except Exception as e:
         logger.error(f"Search failed: {e}")
         raise HTTPException(status_code=500, detail="Knowledge graph retrieval failed")
+
+
+class ProposalAnalysisRequest(BaseModel):
+    proposal_text: str
+    visualize: bool = True
+
+
+@app.post("/visualize")
+async def analyze_proposal(request: ProposalAnalysisRequest):
+    if not request.proposal_text.strip():
+        raise HTTPException(status_code=400, detail="The proposal text cannot be left blank.")
+
+    try:
+        driver = GraphDatabase.driver(
+            settings.neo4j_url,
+            auth=(settings.neo4j_username, settings.neo4j_password)
+        )
+        session = driver.session()
+        
+        module = ExplainabilityModule(
+            llm=settings.ollama_model,
+            kg_client=session,
+            embedding_model=settings.ollama_embedding_model
+        )
+        if request.visualize:
+            result = module.run(request.proposal_text, visualize=True)
+            session.close()
+            driver.close()
+            return HTMLResponse(content=result, status_code=200)
+        else:
+            # If no visualization, return the JSON data
+            result = module.run(request.proposal_text, visualize=False)
+            session.close()
+            driver.close()
+            return result
+    except Exception as e:
+        logger.error(f"Proposal analysis failed: {e}")
+        raise HTTPException(status_code=500, detail="Proposal analysis failed")
+
 
 @app.get("/")
 def health():
