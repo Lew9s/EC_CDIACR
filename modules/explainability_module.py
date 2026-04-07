@@ -493,7 +493,9 @@ box-shadow:0 2px 6px rgba(0,0,0,0.2);
         paths = self.find_hybrid_paths(G, subgraph)
 
         if visualize:
-            self.visualize(subgraph, paths)
+            # Return HTML visualization when visualization is requested
+            html_content = self.visualize(subgraph, paths)
+            return html_content
 
         return {
             "nodes": subgraph["nodes"],

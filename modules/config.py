@@ -16,8 +16,9 @@ class Settings(BaseSettings):
     
     cypher_query: str = os.getenv("CYPHER_QUERY")
 
-    entity_list: str = os.getenv("ENTITY_LIST")
-    relation_list: str = os.getenv("RELATION_LIST")
+    # Align naming with environmental variables expected by the project
+    entities_list: str = os.getenv("ENTITIES_LIST")
+    relations_list: str = os.getenv("RELATIONS_LIST")
     validation_schema: str = os.getenv("VALIDATION_SCHEMA")
     extraction_prompt: str = os.getenv("EXTRACTION_PROMPT")
     

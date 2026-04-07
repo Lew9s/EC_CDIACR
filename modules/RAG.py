@@ -43,12 +43,17 @@ split_documents = split_change_orders(documents)
 nest_asyncio.apply()
 
 # Define schema
-def parse_literal_from_string(literal_string: str):
-    items = [item.strip() for item in literal_string.split(',')]
-    return Literal[tuple(items)]
+def parse_literal_from_string(literal_string: str) -> List[str]:
+    if not literal_string:
+        return []
+    items = [item.strip() for item in literal_string.split(',') if item.strip()]
+    return items
+
+# Load entity/relation type lists from environment-aligned names
 entities = parse_literal_from_string(settings.entities_list)
 relations = parse_literal_from_string(settings.relations_list)
-validation_schema = json.loads(settings.validation_schema)
+# Validation schema may be optional; guard against None
+validation_schema = json.loads(settings.validation_schema) if settings.validation_schema else {}
 
 prompt = settings.extraction_prompt
 
@@ -64,9 +69,9 @@ kg_extractor = SchemaLLMPathExtractor(
 )
 
 graph_store = Neo4jPGStore(
-    username="neo4j",
-    password="12345678",
-    url="bolt://localhost:8687",
+    username=settings.neo4j_username or "neo4j",
+    password=settings.neo4j_password or "12345678",
+    url=settings.neo4j_url or "bolt://localhost:7687",
 )
 
 index = PropertyGraphIndex.from_documents(
