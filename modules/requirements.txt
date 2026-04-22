@@ -1,5 +1,6 @@
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
+langgraph>=0.2.0
 llama-index-core==0.10.0
 llama-index-llms-ollama==0.1.2
 llama-index-embeddings-ollama==0.1.2

@@ -1,140 +1,148 @@
+import asyncio
+import logging
+from functools import lru_cache
+from typing import List
+
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
-from pydantic import BaseModel
-from typing import List, Dict, Any
-from llama_index.core import PropertyGraphIndex
-from llama_index.llms.ollama import Ollama
-from llama_index.embeddings.ollama import OllamaEmbedding
-from llama_index.graph_stores.neo4j import Neo4jPGStore
-from llama_index.core.indices.property_graph import (
-    LLMSynonymRetriever,
-    VectorContextRetriever,
-    CypherTemplateRetriever,
-)
-from pydantic import BaseModel as PydanticBaseModel, Field
-import uvicorn
-import logging
-import os
-from config import settings
 from neo4j import GraphDatabase
-from explainability_module import ExplainabilityModule
+
+from config import settings
+from retrieval import GraphRAGService
+from schemas import (
+    ProposalAnalysisRequest,
+    ProposalGenerateRequest,
+    ProposalGenerateResponse,
+    ProposalRunRequest,
+    ProposalRunResponse,
+    QueryRequest,
+)
+from workflow import ProposalWorkflow
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="GraphRAG", version="1.0")
+app = FastAPI(title="GraphRAG LangGraph API", version="2.0")
 
-# 初始化
-graph_store = Neo4jPGStore(
-    username=settings.neo4j_username,
-    password=settings.neo4j_password,
-    url=settings.neo4j_url,
-)
 
-llm = Ollama(model=settings.ollama_model, request_timeout=settings.ollama_request_timeout)
-embed_model = OllamaEmbedding(model_name=settings.ollama_embedding_model)
+@lru_cache(maxsize=1)
+def get_rag_service() -> GraphRAGService:
+    return GraphRAGService()
 
-# 加载图谱
-index = PropertyGraphIndex.from_existing(
-    property_graph_store=graph_store,
-    llm=llm,
-    embed_model=embed_model,
-    kg_extractors=[],
-    embed_kg_nodes=True,
-)
 
-# 子检索器
-llm_synonym = LLMSynonymRetriever(
-    index.property_graph_store,
-    llm=llm,
-    include_text=True,
-)
+@lru_cache(maxsize=1)
+def get_workflow() -> ProposalWorkflow:
+    return ProposalWorkflow(get_rag_service())
 
-vector_context = VectorContextRetriever(
-    index.property_graph_store,
-    embed_model=embed_model,
-    include_text=True,
-)
 
-cypher = settings.cypher_query
-class ComponentChangeQuery(PydanticBaseModel):
-    component_name: str = Field(description="Component name for querying change history")
+def _initial_state(question: str):
+    return {
+        "user_query": question,
+        "iteration": 0,
+        "errors": [],
+        "retrieval_context": [],
+        "expert_opinions": [],
+        "expert_votes": [],
+        "consensus_rate": 0.0,
+    }
 
-Cypher_retriever = CypherTemplateRetriever(
-    index.property_graph_store,
-    ComponentChangeQuery,
-    cypher,
-    llm
-)
 
-# 查询引擎
-retriever = index.as_retriever(
-    sub_retrievers=[
-        llm_synonym,
-        # vector_context,
-        Cypher_retriever
-    ],
-    include_text=True,
-    similarity_top_k=10
-)
-
-class QueryRequest(BaseModel):
-    question:str
-
-@app.post("/query",response_model=List[str])
-async def query(request:QueryRequest):
+@app.post("/query", response_model=List[str])
+async def query(request: QueryRequest):
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="The question cannot be left blank.")
 
     try:
-        nodes = await retriever.aretrieve(request.question.strip())
-        return [node.text.strip() for node in nodes if node.text.strip()]
+        return await get_rag_service().retrieve(request.question.strip())
     except Exception as e:
         logger.error(f"Search failed: {e}")
         raise HTTPException(status_code=500, detail="Knowledge graph retrieval failed")
 
 
-class ProposalAnalysisRequest(BaseModel):
-    proposal_text: str
-    visualize: bool = True
-
-
 @app.post("/visualize")
 async def analyze_proposal(request: ProposalAnalysisRequest):
     if not request.proposal_text.strip():
-        raise HTTPException(status_code=400, detail="The proposal text cannot be left blank.")
+        raise HTTPException(
+            status_code=400, detail="The proposal text cannot be left blank."
+        )
 
     try:
+        from explainability_module import ExplainabilityModule
+
         driver = GraphDatabase.driver(
             settings.neo4j_url,
-            auth=(settings.neo4j_username, settings.neo4j_password)
+            auth=(settings.neo4j_username, settings.neo4j_password),
         )
         session = driver.session()
-        
+
         module = ExplainabilityModule(
             llm=settings.ollama_model,
             kg_client=session,
-            embedding_model=settings.ollama_embedding_model
+            embedding_model=settings.ollama_embedding_model,
         )
+        result = module.run(request.proposal_text, visualize=request.visualize)
+
         if request.visualize:
-            result = module.run(request.proposal_text, visualize=True)
-            session.close()
-            driver.close()
             return HTMLResponse(content=result, status_code=200)
-        else:
-            # If no visualization, return the JSON data
-            result = module.run(request.proposal_text, visualize=False)
-            session.close()
-            driver.close()
-            return result
+        return result
     except Exception as e:
         logger.error(f"Proposal analysis failed: {e}")
         raise HTTPException(status_code=500, detail="Proposal analysis failed")
+    finally:
+        if "session" in locals():
+            session.close()
+        if "driver" in locals():
+            driver.close()
+
+
+@app.post("/proposal/generate", response_model=ProposalGenerateResponse)
+async def generate_proposal(request: ProposalGenerateRequest):
+    if not request.question.strip():
+        raise HTTPException(status_code=400, detail="The question cannot be left blank.")
+
+    try:
+        question = request.question.strip()
+        state = await asyncio.to_thread(
+            lambda: get_workflow().graph.invoke(_initial_state(question))
+        )
+        return ProposalGenerateResponse(
+            proposal=state.get("final_proposal", ""),
+            consensus_rate=state.get("consensus_rate", 0.0),
+            iterations=state.get("iteration", 0),
+        )
+    except Exception as e:
+        logger.error(f"Proposal generation failed: {e}")
+        raise HTTPException(status_code=500, detail="Proposal generation failed")
+
+
+@app.post("/proposal/run", response_model=ProposalRunResponse)
+async def run_proposal_workflow(request: ProposalRunRequest):
+    if not request.question.strip():
+        raise HTTPException(status_code=400, detail="The question cannot be left blank.")
+
+    try:
+        question = request.question.strip()
+        state = await asyncio.to_thread(
+            lambda: get_workflow().graph.invoke(_initial_state(question))
+        )
+        return ProposalRunResponse(
+            proposal=state.get("final_proposal", ""),
+            consensus_rate=state.get("consensus_rate", 0.0),
+            iterations=state.get("iteration", 0),
+            trace=state if request.include_trace else None,
+        )
+    except Exception as e:
+        logger.error(f"Proposal workflow failed: {e}")
+        raise HTTPException(status_code=500, detail="Proposal workflow failed")
 
 
 @app.get("/")
+@app.get("/health")
 def health():
-    return {"status":200}
+    return {"status": 200}
+
 
 if __name__ == "__main__":
-    uvicorn.run("app:app",host="0.0.0.0",port=8000,reload=False)
+    import uvicorn
+
+    uvicorn.run("app:app", host=settings.api_host, port=settings.api_port, reload=False)

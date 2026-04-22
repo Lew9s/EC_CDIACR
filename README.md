@@ -7,7 +7,7 @@ This repository implements a knowledge-enhanced framework for generating enginee
 The framework consists of three tightly integrated core modules:
 
 1. **Intelligent Retrieval Module**: A knowledge graph retrieval system powered by LlamaIndex and Neo4j, enabling efficient knowledge management and reasoning.
-2. **Dify Workflow Module**: A consensus-driven multi-agent framework that simulates realistic cross-departmental decision-making interactions.
+2. **LangGraph Workflow Module**: A consensus-driven multi-agent framework that simulates realistic cross-departmental decision-making interactions inside the FastAPI service.
 3. **Explainability Module**: An advanced visualization and analysis module for enhanced explainability.
 
 ## Core Functionalities
@@ -22,11 +22,11 @@ The framework consists of three tightly integrated core modules:
 ### 1. System Requirements
 - Python 3.11 or higher
 - Neo4j Graph Database
-- Dify Platform v1.13.2 or higher
+- Ollama model service
 
 ### 2. Install Dependencies
 ```bash
-cd Intelligent\ Retrieval
+cd modules
 pip install -r requirements.txt
 ```
 
@@ -88,14 +88,21 @@ python app.py
 Available API endpoints:
 - `/query`: Execute natural language queries against the knowledge graph
 - `/visualize`: Analyze engineering proposals and generate interactive knowledge graph visualizations
+- `/proposal/generate`: Run the LangGraph multi-agent workflow and return the final proposal
+- `/proposal/run`: Run the workflow and return the proposal plus trace data
 - `/health`: Service health check
 
-### Step 3: Configure the Dify Workflow
-1. Import the `dify.yml` file via the **Import DSL** feature on the Dify platform.
-2. Complete the workflow configuration:
-   - Connect to the Ollama LLM service
-   - Configure HTTP request nodes to interact with the knowledge graph API
-   - Verify loop logic and conditional judgment rules
+### Step 3: Generate an Engineering Change Proposal
+Call the LangGraph workflow endpoint:
+```bash
+curl -X POST http://localhost:8000/proposal/generate \
+  -H "Content-Type: application/json" \
+  -d "{\"question\":\"Adjust the main deck manhole to satisfy DIN 83402\"}"
+```
+
+Use `/proposal/run` when you need the full trace, including parsed intent, retrieved context, expert weights, expert opinions, votes, consensus rate, and iteration count.
+
+The original `dify.yml` is retained as a historical migration reference, but Dify is no longer required for the core workflow.
 
 
 ## Customization
@@ -111,9 +118,8 @@ This project is developed based on the following outstanding open-source project
 **LlamaIndex**: Provides core knowledge graph indexing, retrieval, and LLM orchestration functionalities.
 - Repository: https://github.com/run-llama/llama_index
 
-**Dify**: Supports the multi-agent workflow, consensus mechanism, and visual orchestration system.
-- Official Website: https://dify.ai
-- Repository: https://github.com/langgenius/dify
+**LangGraph**: Provides the stateful multi-agent workflow runtime for expert review, consensus voting, and proposal generation.
+- Documentation: https://docs.langchain.com/oss/python/langgraph
 
 
 We fully comply with their respective open-source licenses and retain all original copyright statements.
